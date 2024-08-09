@@ -2,8 +2,8 @@ from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
-from src.models import metadata
-from src.config import settings
+from app.models.users import metadata
+from app.config import settings
 print(settings)
 
 from alembic import context
