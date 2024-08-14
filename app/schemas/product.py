@@ -1,9 +1,13 @@
+from pprint import pprint
+
 from pydantic import BaseModel
+import sys
+pprint(sys.path)
 
 class ProductBase(BaseModel):
     name: str
-    description: str
-    price: float
+    # description: str
+    # price: float
 
 class ProductCreate(ProductBase):
     pass
