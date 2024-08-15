@@ -1,14 +1,6 @@
 from sqlalchemy.orm import Session
-from app.models.product import Product
-from app.schemas.product import ProductCreate
-print()
-print()
-print()
-print()
-import sys
-print(
-    sys.path
-)
+from models.product import Product
+from schemas.product import ProductCreate
 
 
 def create_product(db: Session, product: ProductCreate):

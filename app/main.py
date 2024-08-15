@@ -1,21 +1,11 @@
-from pprint import pprint
-
+import uvicorn
 from fastapi import FastAPI
-import sys
-from pathlib import Path
-
-# Получаем корневую директорию проекта (на уровень выше директории app)
-# project_root = Path(__file__).resolve().parent.parent
-# sys.path.insert(0, str(project_root))
-#
-#
-pprint(sys.path)
-from routers.product import router as product_router
+from routers.product import router as products_router
 
 
 app = FastAPI()
-app.include_router(product_router)
+app.include_router(products_router)
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", reload=True)

@@ -1,8 +1,5 @@
-from pprint import pprint
-
 from pydantic import BaseModel
-import sys
-pprint(sys.path)
+
 
 class ProductBase(BaseModel):
     name: str
@@ -16,4 +13,4 @@ class Product(ProductBase):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
