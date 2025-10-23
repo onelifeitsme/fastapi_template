@@ -1,6 +1,5 @@
 SQLAlchemy==2.0.20
-psycopg2
-asyncpg
+asyncpg==0.30.0
 pydantic==2.3.0
 pydantic-settings==2.0.3
 fastapi==0.112.0
