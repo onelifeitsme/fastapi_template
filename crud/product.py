@@ -20,8 +20,15 @@ async def get_product(db: AsyncSession, product_id: int) -> Optional[Product]:
     return result.scalar_one_or_none()
 
 
-async def get_products(db: AsyncSession, skip: int = 0, limit: int = 10) -> List[Product]:
-    result = await db.execute(
-        select(Product).offset(skip).limit(limit)
-    )
+async def get_products(
+    db: AsyncSession,
+    skip: int = 0,
+    limit: int | None = None
+) -> List[Product]:
+    query = select(Product).offset(skip)
+
+    if limit is not None:
+        query = query.limit(limit)
+
+    result = await db.execute(query)
     return result.scalars().all()
