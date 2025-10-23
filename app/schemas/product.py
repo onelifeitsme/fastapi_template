@@ -6,8 +6,10 @@ class ProductBase(BaseModel):
     # description: str
     # price: float
 
+
 class ProductCreate(ProductBase):
     pass
+
 
 class Product(ProductBase):
     id: int

@@ -9,8 +9,9 @@ from database import get_async_session
 
 
 router = APIRouter()
-
 db_session = Depends(get_async_session)
+
+
 @router.get('/products', response_model=List[schemas.ProductBase])
 async def get_all_products(session: AsyncSession = db_session):
     result = await session.execute(select(Product))
